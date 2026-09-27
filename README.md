@@ -27,10 +27,11 @@ npm run dev      # http://localhost:3000
 ## How it's put together
 
 **Design tokens.** Every colour, radius and shadow is a CSS custom property in
-`src/app/globals.css`, exposed to Tailwind through `@theme inline`. Light and dark are two
-sets of the same token names, so components never branch on theme. Scrims and dark bands use
-a separate `--overlay` token that is deliberately *constant* across themes — white text sitting
-on an image gradient must not flip when the rest of the UI does.
+`src/app/globals.css`, exposed to Tailwind through `@theme inline`, so no component hardcodes
+a colour. The site is light-only: `:root` sets `color-scheme: light`, which keeps native
+controls — selects, the delivery-date picker, scrollbars — light even when the visitor's
+operating system is set to dark. Image scrims and the corporate band use a separate
+`--overlay` token rather than the text colour, so white text on a gradient stays legible.
 
 **Product art.** There are no bitmap images anywhere. `src/components/product-art.tsx` draws
 twelve illustration motifs as inline SVG, coloured per product from a three-stop palette. That

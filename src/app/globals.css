@@ -1,10 +1,13 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------------
-   Design tokens. Light is the default; .dark remaps the same names
-   so every utility below stays theme-agnostic.
+   Design tokens. The site is light-only: `color-scheme: light` keeps
+   native controls (selects, date pickers, scrollbars) light even when
+   the operating system is set to dark.
    --------------------------------------------------------------- */
 :root {
+  color-scheme: light;
+
   --canvas: #fff7f4;
   --canvas-deep: #fdeae4;
   --surface: #ffffff;
@@ -40,47 +43,9 @@
   --glass: rgb(255 255 255 / 0.72);
   --glass-border: rgb(255 255 255 / 0.6);
 
-  /* Constant in both themes: image scrims and dark bands must stay dark so
-     white text sitting on them never inverts along with the rest of the UI. */
+  /* Scrims and dark bands that carry white text. */
   --overlay: #17101a;
   --on-overlay: #ffffff;
-}
-
-:root.dark {
-  --canvas: #140d11;
-  --canvas-deep: #1d1218;
-  --surface: #1e151a;
-  --surface-raised: #261b21;
-  --surface-sunken: #180f14;
-
-  --ink: #fdf3f0;
-  --ink-soft: #e0cdd4;
-  --ink-muted: #ab939d;
-  --ink-inverse: #1b1016;
-
-  --primary: #ff6b7d;
-  --primary-hover: #ff8494;
-  --primary-soft: #43171f;
-  --on-primary: #2b0a10;
-
-  --gold: #fbbf24;
-  --gold-soft: #3a2a0b;
-  --blush: #f9a8d4;
-  --blush-soft: #3d1830;
-
-  --border: #33242b;
-  --border-strong: #4a353e;
-  --ring: #ff6b7d;
-
-  --success: #4ade80;
-  --success-soft: #0d2c19;
-  --danger: #fca5a5;
-
-  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
-  --shadow-md: 0 4px 12px rgb(0 0 0 / 0.45);
-  --shadow-lg: 0 18px 40px -12px rgb(0 0 0 / 0.6);
-  --glass: rgb(38 27 33 / 0.72);
-  --glass-border: rgb(255 255 255 / 0.08);
 }
 
 @theme inline {

@@ -5,7 +5,6 @@ import { CartProvider } from "@/lib/cart";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { CartDrawer } from "@/components/cart-drawer";
-import { themeScript } from "@/components/theme-toggle";
 
 const rubik = Rubik({
   subsets: ["latin"],
@@ -39,18 +38,12 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fff7f4" },
-    { media: "(prefers-color-scheme: dark)", color: "#140d11" },
-  ],
+  themeColor: "#fff7f4",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${rubik.variable} ${nunito.variable}`} suppressHydrationWarning>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-      </head>
+    <html lang="en" className={`${rubik.variable} ${nunito.variable}`}>
       <body className="min-h-dvh">
         <CartProvider>
           <SiteHeader />

@@ -8,7 +8,6 @@ import { collections, searchProducts } from "@/lib/products";
 import { useCart } from "@/lib/cart";
 import { formatPrice, cx } from "@/lib/format";
 import { ProductArt } from "./product-art";
-import { ThemeToggle } from "./theme-toggle";
 
 const nav = [
   { href: "/collections", label: "Shop all" },
@@ -143,7 +142,6 @@ export function SiteHeader() {
             >
               <Search size={19} strokeWidth={1.75} />
             </button>
-            <ThemeToggle className="hidden sm:grid" />
             <button
               type="button"
               onClick={openDrawer}
@@ -207,10 +205,6 @@ export function SiteHeader() {
                 </Link>
               ))}
             </nav>
-            <div className="flex items-center justify-between border-t border-border px-5 py-4">
-              <span className="text-sm text-ink-muted">Appearance</span>
-              <ThemeToggle />
-            </div>
           </div>
         </div>
       )}
